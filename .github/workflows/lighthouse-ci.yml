@@ -12,7 +12,7 @@ jobs:
           node-version: '14'
       - run: |
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb -y
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
       - run: npm install && npm install -g @lhci/cli@0.4.x
       - run: npm run site
       - run: lhci autorun --upload.target=temporary-public-storage
