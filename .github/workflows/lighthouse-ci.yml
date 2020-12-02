@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   lighthouseci:
+    continue-on-error: true
     runs-on: ${{ matrix.runner_type }}
     strategy:
       matrix:
