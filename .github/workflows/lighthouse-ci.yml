@@ -4,7 +4,10 @@ on: [push, workflow_dispatch]
 
 jobs:
   lighthouseci:
-    runs-on: f32s
+    runs-on: ${{ matrix.runner_type }}
+    strategy:
+      matrix:
+        runner_type: [ds2v2,ds2v3,d2dsv4,d2asv4,d4asv4,ds3v2,ds4v2,ds5v2,f4s,f8s,f16s,f32s] 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
