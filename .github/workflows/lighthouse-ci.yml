@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   lighthouseci:
-    runs-on: f64s
+    runs-on: f32s
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -15,6 +15,8 @@ jobs:
           sudo apt-get update
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo dpkg -i google-chrome-stable_current_amd64.deb
+      - run: |
+          sudo apt --fix-broken install
       - run: npm install && npm install -g @lhci/cli@0.4.x
       - run: npm run site
       - run: lhci autorun --upload.target=temporary-public-storage
