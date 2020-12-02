@@ -19,6 +19,10 @@ jobs:
     steps:
       # Start collecting stats
       #- run: sudo apt -y install sysstat
+      - run: |
+          cd $RUNNER_WORKSPACE
+          cd ..
+          rm -rf *
       - run: mkdir -p ${{ runner.temp }}/${{ env.artifactsDir }}
       - run: iostat -yxmt 1 > ${{ runner.temp }}/${{ env.iostatFile }} &
       - run: vmstat -n 1 > ${{ runner.temp }}/${{ env.vmstatFile }} &
