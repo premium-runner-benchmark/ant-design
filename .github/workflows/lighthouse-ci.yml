@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '14'
       - run: |
-          sudo apt --fix-broken install
+          sudo apt --fix-broken install -y
       - run: npm install && npm install -g @lhci/cli@0.4.x
       - run: npm run site
       - run: lhci autorun --upload.target=temporary-public-storage
